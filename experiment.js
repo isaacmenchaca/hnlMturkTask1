@@ -19,12 +19,12 @@ var instructions = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: `
         <p>In this experiment, you will make a guess of whether a person 
-          makes more or less than $50,000 per year.</p>
+          makes less or more than $50,000 per year.</p>
         <p>You will be displayed a <strong>table of the person's attributes</strong>,
           which you should use to determine their salary.
         <p>Press any key to begin.</p>
       `,
-      post_trial_gap: 2000
+      post_trial_gap: 1000
     };
 
   /* define welcome message trial */
