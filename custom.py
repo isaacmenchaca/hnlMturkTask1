@@ -69,7 +69,7 @@ def my_custom_view():
 # example computing bonus
 # ----------------------------------------------
 
-
+# adjust bonus however you would like.
 @custom_code.route('/compute_bonus', methods=['GET'])
 def compute_bonus():
     # check that user provided the correct keys
@@ -90,9 +90,14 @@ def compute_bonus():
 
         for record in user_data['data']:  # for line in data file
             trial = record['trialdata']
-            if trial['phase'] == 'TEST':
-                if trial['hit'] == True:
-                    bonus += 0.02
+
+            if 'trial_type' in trial.keys():
+                if trial['trial_type'] == 'DisplayTableStim':
+                    print(trial)
+                    if trial['correct']:
+                        bonus += 0.02
+
+        print('bonus is:', bonus)
         user.bonus = bonus
         db_session.add(user)
         db_session.commit()
@@ -100,3 +105,19 @@ def compute_bonus():
         return jsonify(**resp)
     except:
         abort(404)  # again, bad to display HTML, but...
+
+
+# tested scraping from jupyter notebook: databaseVerification.ipynb
+# for i, datastring in enumerate(df['datastring'].values):
+#         print('Participant', i + 1)
+#         bonus = 0
+#         for participantData in json.loads(datastring)['data']:
+#             if "trial_type" in participantData['trialdata'].keys():
+#                 if participantData['trialdata']['trial_type'] == 'DisplayTableStim':
+                    
+#                     print(participantData['trialdata'])
+#                     if participantData['trialdata']['correct']:
+#                         bonus += 0.02
+                        
+#         print('Participant bonus:', bonus)
+#         print()

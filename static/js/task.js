@@ -32,12 +32,11 @@ var jsPsych = initJsPsych({
         	psiTurk.recordTrialData(data);
    		 },
 		on_finish: function() {
-			//jsPsych.data.displayData();
-			
-			//jsPsych.data.get().filter({"trial_type": "DisplayTableStim"}) works
 			psiTurk.saveData({
 				success: function() {
-					psiTurk.completeHIT()
+					psiTurk.computeBonus("compute_bonus", function () {
+						psiTurk.completeHIT();
+					});
 				}
 			});
 		}
