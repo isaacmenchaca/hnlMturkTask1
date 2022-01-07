@@ -28,9 +28,18 @@ var instructionPages = [ // add as a list as many pages as you like
 var experimentTask = function(){
      /* Initialize jsPsych */   
 var jsPsych = initJsPsych({
+		on_data_update: function(data) {
+        	psiTurk.recordTrialData(data);
+   		 },
 		on_finish: function() {
-			jsPsych.data.displayData();
-			psiTurk.completeHIT()
+			//jsPsych.data.displayData();
+			
+			//jsPsych.data.get().filter({"trial_type": "DisplayTableStim"}) works
+			psiTurk.saveData({
+				success: function() {
+					psiTurk.completeHIT()
+				}
+			});
 		}
 	});
 
@@ -42,9 +51,6 @@ var timeline = [];
 var practiceGetReady = {
       type: jsPsychHtmlKeyboardResponse,
       stimulus: '<p style="font-size: 30px;">This is the practice trial. Press any key to begin.</p>',
-	  on_finish: function(){
-        psiTurk.finishInstructions();
-    }
   };
   
 // declare the the experiment instructions.
