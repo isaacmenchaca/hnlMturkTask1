@@ -93,11 +93,12 @@ def compute_bonus():
 
             if 'trial_type' in trial.keys():
                 if trial['trial_type'] == 'DisplayTableStim':
-                    print(trial)
+                    # uncomment to test
+                    #print(trial)
                     if trial['correct']:
                         bonus += 0.02
-
-        print('bonus is:', bonus)
+        # uncomment to test
+        # print('bonus is:', bonus)
         user.bonus = bonus
         db_session.add(user)
         db_session.commit()
