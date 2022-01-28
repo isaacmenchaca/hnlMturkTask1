@@ -104,7 +104,7 @@ var display_table_stim_page2 = {
 
 timeline.push(practiceGetReady);
 timeline.push(display_table_stim_page);
-timeline.push(experimentInstructionsPage);
+//timeline.push(experimentInstructionsPage);
 timeline.push(experimentGetReady);
 timeline.push(display_table_stim_page2);
 timeline.push(display_table_stim_page2);
