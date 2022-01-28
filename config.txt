@@ -9,17 +9,17 @@
 # Title that will be used for the HIT when posted to mturk
 # e.g.,
 #     title = Stroop task
-title = HNL MTurk Config
+title = HNL MTurk Task
 
 # Description that will be used for the HIT when posted to mturk
 # e.g.,
 #     description = Judge the color of a series of words.
-description = Make prediction based off data attributes.
+description = Leave a description here
 
 # Keywords for the HIT on mturk
 # e.g.,
 #     keywords = Perception, Psychology
-keywords = Cognitive Science, Machine learning, training data
+keywords = Cognitive Science
 
 # How many hours a given HIT will last on mturk before becoming unavailable
 # for new assignments
@@ -124,7 +124,7 @@ keywords = Cognitive Science, Machine learning, training data
 # Server domain name for publicly-accessible route to psiturk server.
 # If running on heroku, set this to your heroku app url --
 # e.g., "ad_url_domain = example-app.herokuapp.com"
-;ad_url_domain =
+;ad_url_domain = psiturk-examplenhl.herokuapp.com
 
 # Server port for publicly-accessible route to psiturk server
 ;ad_url_port = 443
@@ -148,7 +148,7 @@ keywords = Cognitive Science, Machine learning, training data
 [Database Parameters]
 # Participant data will be stored in this database.
 # If ON_CLOUD=1, then this defaults to env var $DATABASE_URL, if set.
-;database_url = sqlite:///participants.db
+;database_url = postgres://kmtbkbjuqtjndx:a60b44229f3c0f9f3caec246ece42785b2a2c19fa89ee95c4885d40d475f2c6e@ec2-44-199-52-133.compute-1.amazonaws.com:5432/dfmst7smu8vn7v
 
 # psiTurk creates several database tables to store data and to manage aspects of
 # automated tasks, campaigns, etc...
