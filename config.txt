@@ -148,7 +148,7 @@ ad_url_domain = hnlmturktask1.herokuapp.com
 [Database Parameters]
 # Participant data will be stored in this database.
 # If ON_CLOUD=1, then this defaults to env var $DATABASE_URL, if set.
-;database_url = 
+database_url = postgres://sewzinskdudvpr:93d047ea6d065e1b916a43a7cd392faf1822c46d8e079bc40e608ade2d8d13bc@ec2-174-129-225-160.compute-1.amazonaws.com:5432/dd5ln6j2ckc41p
 
 # psiTurk creates several database tables to store data and to manage aspects of
 # automated tasks, campaigns, etc...
